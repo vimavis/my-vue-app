@@ -21,7 +21,6 @@ onMounted(async () => {
   } catch (error) {
     status.value = 'error';
   }
-  console.log(listSongs);
 })
 
 </script>
@@ -31,6 +30,7 @@ onMounted(async () => {
     <div class="border">album</div>
     <div class="border">
       <div class="headers">
+        <span></span>
         <span>#</span>
         <span>Nombre</span>
         <span>Duracion</span>
@@ -59,13 +59,7 @@ onMounted(async () => {
 }
 
 .headers {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 </style>
-
-<!-- 
-index: Number,
-name: String,
-timeMs: Number,
-active: Boolean -->

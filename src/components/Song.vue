@@ -9,8 +9,10 @@ const props = defineProps({
 })
 
 const timeMMSS = computed(() => {
-  const minutes = Math.floor(props.timeMs/1000/60);
-  const seconds = Math.floor((props.timeMs/1000)) % 60;
+  let minutes = Math.floor(props.timeMs/1000/60);
+  let seconds = Math.floor((props.timeMs/1000)) % 60;
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  seconds = seconds < 10 ? `0${seconds}` : seconds;
   return `${minutes}:${seconds}`;
 })
 
@@ -27,7 +29,7 @@ const timeMMSS = computed(() => {
 
 <style scoped>
 .song {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 </style>
